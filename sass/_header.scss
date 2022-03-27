@@ -1,0 +1,221 @@
+.header {
+  &-top {
+    padding-top: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-menu.open-menu {
+    transform: translateX(0);
+  }
+  &-menu__list {
+    list-style-type: none;
+    display: flex;
+    gap: 0 40px;
+  }
+  &-menu__items--auth {
+    display: none;
+  }
+  &-menu__link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+  &-bars {
+    font-size: 28px;
+    cursor: pointer;
+    display: none !important;
+  }
+  &-menu__close {
+    display: none !important;
+  }
+  &-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 90px;
+  }
+  &-center__image img {
+    max-width: 100%;
+  }
+  &-center__content {
+    max-width: 555px;
+    width: 100%;
+    padding-right: 40px;
+  }
+  &-bottom {
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 200px;
+  }
+  &-items {
+    gap: 0 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:nth-child(2) {
+      border: 2px solid #eeeff2;
+      border-top: 0;
+      border-bottom: 0;
+    }
+  }
+  &-items__icon {
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+  &-group__count {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 120%;
+    color: $third-color;
+  }
+  &-group__text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $secondary-color;
+  }
+  .global-heading {
+    margin-bottom: 20px;
+  }
+  .btn + .btn {
+    margin-left: 30px;
+  }
+  @media only screen and (min-width: 1279px) {
+    &-center__image {
+      transform: translateX(67px);
+    }
+  }
+  @media only screen and (max-width: 1279px) {
+    &-center {
+      padding-top: 60px;
+    }
+    &-center__content {
+      padding-right: 12px;
+      max-width: 50%;
+    }
+    &-center__image {
+      max-width: 50%;
+    }
+  }
+  @media only screen and (max-width: 1023px) {
+    &-top {
+      padding-top: 40px;
+    }
+    &-auth {
+      display: none;
+    }
+    &-bars,
+    &-menu__close {
+      display: block !important;
+    }
+    &-menu__close {
+      font-size: 28px;
+      cursor: pointer;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.4rem;
+    }
+    &-menu {
+      position: fixed;
+      max-width: 300px;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: $light-color;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      overflow-y: auto;
+      padding: 80px 20px 20px;
+      z-index: 99999999999999999999999;
+      transform: translateX(100%);
+      will-change: transform;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    &-menu__list {
+      flex-direction: column;
+      gap: 20px 0;
+    }
+    &-menu__link {
+      padding: 8px 0;
+    }
+    &-menu__items--auth {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-bottom {
+      padding-top: 80px;
+      min-height: 125px;
+    }
+    &-group__text {
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    &-center {
+      flex-direction: column-reverse;
+    }
+    &-center__content, &-center__image {
+      max-width: 100%;
+    }
+    &-center__content {
+      margin-top: 20px;
+      padding-right: 0;
+    }
+    &-bottom {
+      padding-top: 40px;
+      grid-template-columns: 1fr;
+      grid-gap: 20px 0;
+    }
+    &-items {
+      width: 80%;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
+    &-items:not(:nth-child(9999)) {
+      border: initial;
+    }
+    &-group {
+      text-align: right;
+    }
+  }
+  @media only screen and (max-width: 424px) {
+    &-items {
+      width: 100%;
+    }
+    .global-heading {
+      margin-bottom: 10px;
+    }
+  }
+}
+@media (hover: hover) {
+  .header-menu__link {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      left: auto;
+      background: $primary-color;
+      width: 0;
+      height: 3px;
+      transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    &:hover {
+      color: $primary-color;
+    }
+    &:hover:after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+  }
+}
